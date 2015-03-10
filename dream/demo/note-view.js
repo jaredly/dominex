@@ -1,6 +1,6 @@
 /** @jsx h */
 
-import h from './vdom'
+import h from '../vdom'
 
 export default function Note(Model, events) {
   // debugging

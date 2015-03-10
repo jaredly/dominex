@@ -1,5 +1,5 @@
 
-import collectionMods from './collection'
+import collectionMods from '../collection'
 
 let notesApi = {
   update() {

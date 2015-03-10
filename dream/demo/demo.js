@@ -1,7 +1,7 @@
 /** @jsx h */
 
-import h from './vdom'
-import render from './render'
+import h from '../vdom'
+import render from '../render'
 import Note from './note'
 import {Map, List} from 'immutable'
 

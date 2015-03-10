@@ -1,6 +1,6 @@
 /** @jsx h */
 
-import h from './vdom'
+import h from '../vdom'
 import Note from './note'
 
 export default function NotesView(Model, events) {
