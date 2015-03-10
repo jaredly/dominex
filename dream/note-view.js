@@ -3,9 +3,11 @@
 import h from './vdom'
 
 export default function Note(Model, events) {
+  // debugging
   Model.text.log()
   Model.isAwesome.log()
   return Model.text.combine(Model.isAwesome, (text, isAwesome) => <div>
+    <span>{text}</span>
     <textarea
       value={text}
       onChange={events('change', e => e.target.value)}
@@ -18,7 +20,5 @@ export default function Note(Model, events) {
     <button onClick={events('save')}>Save</button>
     <button onClick={events('remove')}>Remove</button>
   </div>)
-  //.throttle(10)
 }
-
 

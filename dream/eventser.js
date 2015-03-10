@@ -18,7 +18,9 @@ export default class Eventser {
     if (mapper) e = e.map(mapper)
     if (transformer) e = transformer(e)
 
+    // debugging
     e.log('send event: ' + name)
+
     // pipe the result to our event stream
     e.onAny(evt => this.evmap[name].emitEvent(evt))
     // but return the original (pre-transformation) observable

@@ -1,5 +1,4 @@
 # Dominex
 
-WIP reactive frameworky thing. For making awesome front-end apps. that scale.
-and arpeggio.
-
+Currently in *dreamcode* stage, with just enough implementation so you can
+play with it.

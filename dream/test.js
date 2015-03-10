@@ -7,4 +7,3 @@ import {Map, List} from 'immutable'
 
 render(<Note note={Map({text: 'Hello world!', isAwesome: true})}/>, document.body)
 
-

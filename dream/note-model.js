@@ -1,4 +1,5 @@
 
+// TODO refactor into a utils file? Or otherwise make this common-case easy
 function pipeEventer(eventser, propser) {
   propser = propser.toProperty()
   // TODO destroy later

@@ -24,7 +24,6 @@ export default class Propser {
     if (!this.props[name]) this.add(name)
     return this.props[name]
   }
-
 }
 
 

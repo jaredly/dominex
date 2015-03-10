@@ -19,7 +19,7 @@ class Hook {
   }
 }
 
-let hooks = {
+let hookables = {
   onChange: true,
   onClick: true,
 }
@@ -27,12 +27,12 @@ let hooks = {
 function node(tag, props, ...children) {
   // TODO hook event listeners
   for (let name in props) {
-    if (hooks[name]) {
+    if (hookables[name]) {
       props[name] = new Hook(props[name])
     }
   }
   if ('string' === typeof tag) {
-    return new vdom.VNode(tag, props, children)
+    return new vdom.VNode(tag, props, children.map(it => 'string' === typeof it ? new vdom.VText(it) : it))
   }
   return new Widget(tag, props, children)
 }
@@ -46,23 +46,22 @@ class Widget {
   }
 
   init() {
-    // this.div = vdom.createElement(this.prevTree)
-    this.wid = new Wid(this.tag, this.props, this.children)
-    return this.wid.div
+    this.node = new Node(this.tag, this.props, this.children)
+    return this.node.div
   }
 
   update(previous, domNode) {
-    this.wid = previous.wid
-    this.wid.props(this.props)
+    this.node = previous.node
+    this.node.props(this.props)
     return 
   }
 
   destroy(domNode) {
-    this.wid.remove()
+    this.node.remove()
   }
 }
 
-class Wid {
+class Node {
   constructor(tag, props, children) {
     // TODO put children in the props
     this.events = new Eventser()
@@ -93,6 +92,10 @@ class Wid {
 
   props(newProps) {
     this.propser.update(newProps)
+  }
+
+  remove(oldNode) {
+    // TODO: what goes here?
   }
 }
 
