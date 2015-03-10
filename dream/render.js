@@ -1,8 +1,8 @@
 
 import vdom from 'virtual-dom'
 
-export default render(tree, dom) {
-  let el = vdom.createElement(tree)
+export default function render(tree, dom) {
+  let el = vdom.create(tree)
   dom.appendChild(el)
 }
 
